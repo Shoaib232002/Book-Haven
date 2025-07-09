@@ -53,6 +53,39 @@ textarea {
   border-radius: 10px;
 }
 
+.nav-links
+#profileToggle {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+#profileToggle{
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 45px;
+  margin-top: auto;
+  right: 0;
+  background: white;
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown.show {
+  display: block;
+}
+
 button {
   padding: 0.8rem;
   background-color: #00b894;
@@ -222,6 +255,13 @@ main {
   font-weight: bold;
   text-align: center;
   padding: 1rem;
+}
+.book-cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .book-info {

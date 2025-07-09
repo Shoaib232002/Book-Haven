@@ -17,8 +17,14 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#categories">Categories</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="/login.html">Logout</a></li>
+        <li><a href="/login.html" id="logout">Logout</a></li>
+        
       </ul>
+      <span id="profileToggle">👤</span>
+      <div class="dropdown" id="profileDropdown">
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+      </div>
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search books..." />
         <div class="cart-icon" onclick="toggleCart()">
@@ -425,7 +431,7 @@
         author: "F. Scott Fitzgerald",
         price: 12.99,
         category: "fiction",
-        cover: "Classic American Novel",
+        cover: "https://www.hachette.com.au/content/books/9780762498130.jpg", // <-- path to image
       },
       {
         id: 2,
@@ -433,7 +439,7 @@
         author: "Harper Lee",
         price: 14.99,
         category: "fiction",
-        cover: "Timeless Classic",
+        cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_(first_edition_cover).jpg/500px-To_Kill_a_Mockingbird_(first_edition_cover).jpg", // <-- path to image
       },
       {
         id: 3,
@@ -441,7 +447,7 @@
         author: "George Orwell",
         price: 13.99,
         category: "fiction",
-        cover: "Dystopian Masterpiece",
+        cover: "https://cdn.shopify.com/s/files/1/0015/1807/5926/files/1984_Plot_Analysis_600x600.jpg?v=1702507853", // <-- path to image
       },
       {
         id: 4,
@@ -449,7 +455,7 @@
         author: "Dan Brown",
         price: 15.99,
         category: "mystery",
-        cover: "Mystery Thriller",
+        cover: "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/05/da-vinci-code.jpg", // <-- path to image
       },
       {
         id: 5,
@@ -457,7 +463,7 @@
         author: "Jane Austen",
         price: 11.99,
         category: "romance",
-        cover: "Classic Romance",
+        cover: "https://flxt.tmsimg.com/assets/p16161151_b_v10_aa.jpg", // <-- path to image
       },
       {
         id: 6,
@@ -465,7 +471,7 @@
         author: "Frank Herbert",
         price: 18.99,
         category: "sci-fi",
-        cover: "Epic Space Opera",
+        cover: "https://i.etsystatic.com/36466740/r/il/f71b6b/4909391580/il_570xN.4909391580_k1ih.jpg", // <-- path to image
       },
       {
         id: 7,
@@ -473,7 +479,7 @@
         author: "Yuval Noah Harari",
         price: 16.99,
         category: "non-fiction",
-        cover: "Human History",
+        cover: "https://media.karousell.com/media/photos/products/2023/6/15/sapiens_a_brief_history_of_hum_1686841417_77864511_progressive.jpg", // <-- path to image
       },
       {
         id: 8,
@@ -481,7 +487,7 @@
         author: "Paulo Coelho",
         price: 13.99,
         category: "fiction",
-        cover: "Philosophical Novel",
+        cover: "https://thebookcoverdesigner.com/wp-content/uploads/2018/02/thealchemist-copy.jpg", // <-- path to image
       },
       {
         id: 9,
@@ -489,7 +495,7 @@
         author: "Gillian Flynn",
         price: 14.99,
         category: "mystery",
-        cover: "Psychological Thriller",
+        cover: "https://lumiere-a.akamaihd.net/v1/images/image_059c8da8.jpeg?region=0%2C0%2C800%2C1200", // <-- path to image
       },
       {
         id: 10,
@@ -497,7 +503,7 @@
         author: "Nicholas Sparks",
         price: 12.99,
         category: "romance",
-        cover: "Heartwarming Romance",
+        cover: "https://m.media-amazon.com/images/I/71X+zEMq9nL._UF1000,1000_QL80_.jpg", // <-- path to image
       },
       {
         id: 11,
@@ -505,7 +511,7 @@
         author: "Isaac Asimov",
         price: 15.99,
         category: "sci-fi",
-        cover: "Science Fiction Classic",
+        cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1417900846i/29579.jpg", // <-- path to image
       },
       {
         id: 12,
@@ -513,7 +519,7 @@
         author: "Tara Westover",
         price: 16.99,
         category: "non-fiction",
-        cover: "Memoir",
+        cover: "https://m.media-amazon.com/images/I/71N2HZwRo3L.jpg", // <-- path to image
       },
     ];
 
@@ -536,7 +542,9 @@
         const bookCard = document.createElement("div");
         bookCard.className = "book-card";
         bookCard.innerHTML = `
-                    <div class="book-cover">${book.cover}</div>
+                    <div class="book-cover">
+                        <img src="${book.cover}" alt="${book.title} cover" />
+                    </div>
                     <div class="book-info">
                         <div class="book-title">${book.title}</div>
                         <div class="book-author">by ${book.author}</div>
