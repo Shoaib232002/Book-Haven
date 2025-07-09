@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookVault - Your Digital Library</title>
+    <link rel="stylesheet" href="styles/abct.css">
+    <link rel="stylesheet" href="styles/opening.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">📚 BookHaven</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/login" class="login-btn" >Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Your Digital Library Awaits</h1>
+                <p>Discover, collect, and enjoy thousands of books in one beautiful app. Your next great read is just a tap away.</p>
+               
+            </div>
+            <div class="hero-visual">
+                <div class="book-stack">
+                    <div class="book"></div>
+                    <div class="book"></div>
+                    <div class="book"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <section class="categories">
+        <div class="category-card" onclick="filterBooks('fiction')">
+          <h3>📖 Fiction</h3>
+          <p>Novels & Stories</p>
+        </div>
+        <div class="category-card" onclick="filterBooks('non-fiction')">
+          <h3>📚 Non-Fiction</h3>
+          <p>Real Stories & Facts</p>
+        </div>
+        <div class="category-card" onclick="filterBooks('mystery')">
+          <h3>🔍 Mystery</h3>
+          <p>Thrillers & Detective</p>
+        </div>
+        <div class="category-card" onclick="filterBooks('romance')">
+          <h3>💕 Romance</h3>
+          <p>Love Stories</p>
+        </div>
+        <div class="category-card" onclick="filterBooks('sci-fi')">
+          <h3>🚀 Sci-Fi</h3>
+          <p>Future & Space</p>
+        </div>
+        <div class="category-card" onclick="filterBooks('all')">
+          <h3>📋 All Books</h3>
+          <p>Complete Collection</p>
+        </div>
+      </section>
+    </section>
+     <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          About Our <span class="title-accent">Bookstore</span>
+        </h2>
+        <p class="section-subtitle">
+          Welcome to Literary Haven, where stories come alive and knowledge finds its home.
+          For over 15 years, we've been the community's trusted destination for books,
+          creating a warm space where readers of all ages can discover their next great adventure.
+        </p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-story">
+          <h3>Our Story</h3>
+          <p>
+            Founded in 2008 by book lovers Sarah and Michael Thompson, Literary Haven began
+            as a small neighborhood bookshop with a simple mission: to connect people with
+            the perfect book. What started as a cozy corner store has grown into a beloved
+            community hub that hosts author readings, book clubs, and literary events.
+          </p>
+          <p>
+            We believe that books have the power to transform lives, spark imagination,
+            and build bridges between different cultures and perspectives. Our carefully
+            curated collection spans every genre, from timeless classics to contemporary
+            bestsellers, ensuring there's something special for every reader.
+          </p>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              </svg>
+              <div class="stat-value">50,000+</div>
+              <div class="stat-label">Books Available</div>
+            </div>
+
+            <div class="stat-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <div class="stat-value">25,000+</div>
+              <div class="stat-label">Happy Customers</div>
+            </div>
+
+            <div class="stat-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+              </svg>
+              <div class="stat-value">15+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+
+            <div class="stat-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12,6 12,12 16,14" />
+              </svg>
+              <div class="stat-value">12</div>
+              <div class="stat-label">Hours Open Daily</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-card">
+        <h3>What Makes Us Special</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              </svg>
+            </div>
+            <h4>Curated Selection</h4>
+            <p>Every book is hand-picked by our team of literary enthusiasts to ensure quality and diversity.</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h4>Community Events</h4>
+            <p>Regular book clubs, author readings, and literary discussions bring our community together.</p>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+              </svg>
+            </div>
+            <h4>Expert Recommendations</h4>
+            <p>Our knowledgeable staff provides personalized book recommendations for every taste.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Contact Section -->
+   <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Get In <span class="title-accent">Touch</span>
+        </h2>
+        <p class="section-subtitle">
+          Have a question about a book? Want to join our book club? Or simply want to chat about literature?
+          We'd love to hear from you!
+        </p>
+      </div>
+
+      <div class="contact-content">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <h4>Visit Our Store</h4>
+                <p>123 Literary Lane</p>
+                <p>Booktown, BT 12345</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <h4>Call Us</h4>
+                <p>(555) 123-BOOK</p>
+                <p>(555) 123-2665</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <h4>Email Us</h4>
+                <p>info@literaryhaven.com</p>
+                <p>events@literaryhaven.com</p>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12,6 12,12 16,14" />
+                </svg>
+              </div>
+              <div class="contact-details">
+                <h4>Store Hours</h4>
+                <p>Mon-Sat: 9am-9pm</p>
+                <p>Sunday: 10am-6pm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-benefits">
+            <h4>Why Contact Us?</h4>
+            <ul>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span>Book recommendations and special orders</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span>Book club and event information</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span>Author signing and reading requests</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                <span>Bulk orders for schools and organizations</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h3>Send Us a Message</h3>
+
+          <div id="success-message" class="success-message" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+            <div>
+              <h4>Message Sent Successfully!</h4>
+              <p>We'll get back to you within 24 hours.</p>
+            </div>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a subject</option>
+                <option value="book-recommendation">Book Recommendation</option>
+                <option value="special-order">Special Order</option>
+                <option value="book-club">Book Club Info</option>
+                <option value="events">Events & Readings</option>
+                <option value="bulk-order">Bulk Orders</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required rows="5"
+                placeholder="Tell us how we can help you..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading" style="display: none;">
+                <div class="spinner"></div>
+                <span>Sending...</span>
+              </span>
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M22 2l-20 10 8.5 4 4-8.5z" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <footer>
+      <div class="container">
+        <p>
+          &copy; 2024 BookHaven. All rights reserved. | Your destination for
+          quality books
+        </p>
+      </div>
+    </footer>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Welcome Back!</h3>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statItems = entry.target.querySelectorAll('.stat-item h3');
+                    statItems.forEach((item, index) => {
+                        const finalValue = item.textContent;
+                        const numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
+                        
+                        if (numericValue) {
+                            let currentValue = 0;
+                            const increment = numericValue / 50;
+                            const timer = setInterval(() => {
+                                currentValue += increment;
+                                if (currentValue >= numericValue) {
+                                    currentValue = numericValue;
+                                    clearInterval(timer);
+                                }
+                                item.textContent = finalValue.replace(/[0-9]+/, Math.floor(currentValue));
+                            }, 30);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

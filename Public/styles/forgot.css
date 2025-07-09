@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Container Styles */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  animation: slideUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.5s ease;
+}
+
+/* Form transition animations */
+#emailForm {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#otpForm {
+  opacity: 0;
+  transform: translateX(100%);
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+}
+
+#otpForm[style*="block"] {
+  opacity: 1;
+  transform: translateX(0);
+  position: static;
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Input Styles */
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+  position: relative;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #a0a5aa;
+}
+
+/* OTP Input Special Styling */
+#otp {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, #f8f9fa, #fff);
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Different button styles for different actions */
+button[onclick*="otpsent"] {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+button[onclick*="otpsent"]:hover {
+  box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+}
+
+/* Message Styles */
+#emailMsg,
+#otpMsg {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+#emailMsg.success,
+#otpMsg.success {
+  color: #27ae60;
+  background: rgba(39, 174, 96, 0.1);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+#emailMsg.error,
+#otpMsg.error {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Progress Steps Indicator */
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.progress-steps::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #e1e5e9;
+  z-index: 1;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e1e5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: scale(1.1);
+}
+
+.step.completed {
+  background: #27ae60;
+  color: white;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 20px;
+    margin: 10px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  input[type="email"],
+  input[type="text"],
+  input[type="password"],
+  button {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  #otpForm[style*="block"] {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+/* Additional animations for form switching */
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
