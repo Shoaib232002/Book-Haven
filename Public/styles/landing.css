@@ -201,9 +201,20 @@ main {
 
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* Always 4 cards per row on desktop */
   gap: 1rem;
   margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+@media (max-width: 600px) {
+  .categories {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
 }
 
 .category-card {

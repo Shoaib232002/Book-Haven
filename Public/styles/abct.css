@@ -312,8 +312,6 @@
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    ring: 2px;
-    ring-color: #d97706;
     border-color: #d97706;
 }
 
