@@ -699,7 +699,43 @@ MIT License
 `;
     }
     
-    
+    // Contact form submission
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const subject = document.getElementById('subject').value;
+          const message = document.getElementById('message').value;
+          const btn = contactForm.querySelector('button[type="submit"]');
+          const btnText = btn.querySelector('.btn-text');
+          const btnLoading = btn.querySelector('.btn-loading');
+          btnText.style.display = 'none';
+          btnLoading.style.display = 'inline-flex';
+          try {
+            const res = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, subject, message })
+            });
+            const data = await res.json();
+            if (data.success) {
+              document.getElementById('success-message').style.display = 'flex';
+              contactForm.reset();
+            } else {
+              alert(data.message || 'Failed to send message.');
+            }
+          } catch (err) {
+            alert('Failed to send message.');
+          } finally {
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+          }
+        });
+      }
+    });
   </script>
 
 </body>

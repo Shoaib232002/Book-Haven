@@ -35,8 +35,8 @@ const User = mongoose.model('User', new mongoose.Schema({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: '',       // replace with your Gmail
-    pass: ''         // use an App Password (NOT your real Gmail password)
+    user: 'shoaib232002@gmail.com',       // replace with your Gmail
+    pass: 'ptyg axrj bnzx jtsq'         // use an App Password (NOT your real Gmail password)
   }
 });
 
@@ -165,7 +165,7 @@ app.post('/api/send-otp', async (req, res) => {
   };
 
   const mailOptions = {
-    from: 'your.email@gmail.com',
+    from: 'shoaib232002@gmail.com',
     to: email,
     subject: 'Password Reset OTP - MyApp',
     html: `
@@ -288,8 +288,8 @@ app.get('/admin-dashboard.html', (req, res) => {
 
 // Ensure admin user exists
 (async () => {
-  const adminEmail = 'shoaib2002@gmail.com';
-  const adminPassword = 'Admin123';
+  const adminEmail = 'AdminBookStores@gmail.com';
+  const adminPassword = 'Admin@789';
   const existingAdmin = await User.findOne({ email: adminEmail, isAdmin: true });
   if (!existingAdmin) {
     const hashedPassword = await bcrypt.hash(adminPassword, 10);
@@ -301,10 +301,33 @@ app.get('/admin-dashboard.html', (req, res) => {
       isAdmin: true
     });
     
-  } else {
-    console.log('Admin user exists');
-  }
+  } 
 })();
+
+// Contact form API
+app.post('/api/contact', async (req, res) => {
+  const { name, email, subject, message } = req.body;
+  if (!name || !email || !message) {
+    return res.json({ success: false, message: 'Please fill all required fields.' });
+  }
+  const mailOptions = {
+    from: email, // user's email as sender
+    to: 'shoaib232002@gmail.com',   // replace with your admin/receiver email
+    subject: `Contact Form: ${subject || 'No Subject'}`,
+    html: `<p><strong>Name:</strong> ${name}</p>
+           <p><strong>Email:</strong> ${email}</p>
+           <p><strong>Subject:</strong> ${subject}</p>
+           <p><strong>Message:</strong></p>
+           <p>${message}</p>`
+  };
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true });
+  } catch (err) {
+    console.log('Contact form mail error:', err);
+    res.json({ success: false, message: 'Failed to send message. Please try again later.' });
+  }
+});
 
 // Start Server
 const PORT = 3000;
