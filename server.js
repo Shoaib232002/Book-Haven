@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 // Middlewares
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('Public'));
 app.use(session({
   secret: 'secureSecret123',
   resave: false,
